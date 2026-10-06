@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<a class="back" href="{{ '/' | relative_url }}">← All projects</a>
+<article class="project-detail">
+  <div class="tags">{% for tag in page.tags %}<span>{{ tag | escape }}</span>{% endfor %}</div>
+  <h1>{{ page.title | escape }}</h1>
+  <p class="lead">{{ page.summary | escape }}</p>
+  {% if page.image %}<img class="project-hero" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}">{% endif %}
+  <div class="prose">{{ content }}</div>
+  {% if page.repository %}<p><a class="button" href="{{ page.repository | escape }}">View code on GitHub ↗</a></p>{% endif %}
+</article>

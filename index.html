@@ -1,0 +1,24 @@
+---
+layout: default
+title: Engineering Portfolio
+---
+<section class="introduction">
+  <p class="eyebrow">Engineering Portfolio</p>
+  <h1>Mechanical Engineering<br>&amp; Robotics</h1>
+  <p>{{ site.intro | escape }}</p>
+</section>
+<section aria-labelledby="projects-title">
+  <h2 id="projects-title" class="section-title">Selected Projects</h2>
+  {% assign projects = site.projects | sort: 'order' %}
+  {% for project in projects %}
+  <article class="project-card {% if project.image %}with-image{% endif %}">
+    {% if project.image %}<a class="thumbnail" href="{{ project.url | relative_url }}" tabindex="-1" aria-hidden="true"><img src="{{ project.image | relative_url }}" alt="" loading="lazy"></a>{% endif %}
+    <div>
+      <div class="tags">{% for tag in project.tags %}<span>{{ tag | escape }}</span>{% endfor %}</div>
+      <h3><a href="{{ project.url | relative_url }}">{{ project.title | escape }}</a></h3>
+      <p>{{ project.summary | escape }}</p>
+      <a class="read-more" href="{{ project.url | relative_url }}">View project <span aria-hidden="true">→</span></a>
+    </div>
+  </article>
+  {% endfor %}
+</section>

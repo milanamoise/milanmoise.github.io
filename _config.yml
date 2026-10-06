@@ -1,5 +1,36 @@
 title: Milan Moise
-description: Mechanical Engineering | Robotics | Technical Consulting
-theme: minima
-url: "https://milanmoise.github.io"
-baseurl: ""
+name: Milan Moise
+description: Mechanical Engineering, Robotics & Technical Consulting
+url: "" # Set to https://YOURUSERNAME.github.io
+baseurl: "" # Keep empty for YOURUSERNAME.github.io
+location: Durham, NC
+intro: >-
+  I am a mechanical engineering graduate student at Duke University with
+  interests in robotics, systems engineering, and technical consulting.
+  My work combines technical problem-solving, interdisciplinary design,
+  and project coordination.
+avatar: "" # Optional: /assets/images/profile.jpg
+github_url: "" # Your GitHub profile URL
+linkedin_url: "" # Your LinkedIn profile URL
+email: "" # Your professional email
+resume_url: "" # After uploading PDF: /assets/files/resume.pdf
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+markdown: kramdown
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - preview.html

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | escape }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead"><div class="header-inner">
+  <a class="brand" href="{{ '/' | relative_url }}">{{ site.name | escape }}</a>
+  <nav aria-label="Main navigation">
+    <a href="{{ '/' | relative_url }}">Projects</a>
+    <a href="{{ '/about/' | relative_url }}">About</a>
+    {% if site.resume_url != '' %}<a href="{{ site.resume_url | relative_url }}">Resume</a>{% endif %}
+  </nav>
+</div></header>
+<div class="shell">
+  <aside class="profile" aria-label="Profile">
+    {% if site.avatar != '' %}<img class="avatar" src="{{ site.avatar | relative_url }}" alt="{{ site.name | escape }}" width="160" height="160">
+    {% else %}<div class="avatar initials" aria-hidden="true">MM</div>{% endif %}
+    <h2>{{ site.name | escape }}</h2>
+    <p class="profile-description">{{ site.description | escape }}</p>
+    <p class="location">{{ site.location | escape }}</p>
+    <ul class="profile-links">
+      {% if site.github_url != '' %}<li><a href="{{ site.github_url | escape }}">GitHub ↗</a></li>{% endif %}
+      {% if site.linkedin_url != '' %}<li><a href="{{ site.linkedin_url | escape }}">LinkedIn ↗</a></li>{% endif %}
+      {% if site.resume_url != '' %}<li><a href="{{ site.resume_url | relative_url }}">Resume ↗</a></li>{% endif %}
+      {% if site.email != '' %}<li><a href="mailto:{{ site.email | escape }}">Email ↗</a></li>{% endif %}
+    </ul>
+  </aside>
+  <main id="main">{{ content }}</main>
+</div>
+<footer><div>© {{ 'now' | date: '%Y' }} {{ site.name | escape }} · Built with Jekyll</div></footer>
+</body>
+</html>
